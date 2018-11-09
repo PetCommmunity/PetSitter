@@ -1,0 +1,53 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="reviewRating.js"></script>
+<link href="rating.css" rel="stylesheet" id="bootstrap-local">
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+    <h2>Feedback</h2>
+    <table width="100%" border="0">
+      <div class="col-md-9 col-md-offset-0">
+        <tr><td width="77%">
+        <div class="">
+          <form class="form-horizontal" action="send.php" method="post">
+          <fieldset>
+    
+            <!-- Name input-->
+            <!-- Message body -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Your message</label>
+              <div class="col-md-9">
+                <textarea class="form-control" id="message" name="message" placeholder="Please enter your feedback here..." rows="5"></textarea>
+              </div>
+            </div>
+
+
+            <!-- Rating -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Your rating</label>
+              <div class="col-md-9">
+                <input id="input-21e" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+              </div>
+            </div>
+   
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-center">
+             
+                <button type="submit" class="btn btn-primary btn-md">Submit</button>
+                <button type="reset" class="btn btn-default btn-md">Clear</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+    </div>
+    </td>
+    </tr>
+    </table>
+</div>
