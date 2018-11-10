@@ -1,114 +1,127 @@
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pet sitter profile </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+
 
 <div class="container">
-<div class="row">
-  <div class="col-sm">
- <form class="form-horizontal" action="send.php" method="post">
-          <fieldset>
-    
-            <!-- Name input-->
-            <!-- Message body -->
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="message">Base Rate per day</label>
-              <div class="col-md-9">
-                <Input type="text" class="form-control" id="rate" name="rate" />
-              </div>
-			   
-            </div>
-
-
-            <!-- Rating -->
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="message">I can </label>
-              <div class="col-md-9">
-				<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">visit owners home
-				</label>
-				<br/>
-				<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Pet sit in my home
-				</label>
-              </div>
-            </div>
 	
-			<div class="form-group">
-              <label class="col-md-3 control-label" for="message">I can  take care of </label>
-              <div class="col-md-9">
-				<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Dogs
-				</label>
-				<br/>
-				<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Cats
-				</label>
-				<br/>
-					<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Birds
-				</label>
-				<br/>
-					<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Small Mammals
-				</label>
-				<br/>
-					<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Fish
-				</label>
-				<br/>
-				<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Reptiles
-				</label>
-				<br/>
+		
+			<form class="form-horizontal" action="send.php" method="post">
+				<fieldset>
+				<div class="row">
+				<div class="col-lg-7">
+					<div class="form-group">
+					  <label class="col-md-3 control-label" for="message">Base Rate per day</label>
+					  <div class="col-md-2">
+						<Input type="text" class="form-control" id="rate" name="rate" />
+					  </div>
+					</div>
+					<div class="form-group">
+					  <label class="col-md-3 control-label" for="message" ><b>I can</b> </label>
+					  <div class="col-md-9">
+						<label class="form-check-label">
+							<input type="checkbox" class="form-check-input" value="">visit owners home
+						</label>
+						<br/>
+						<label class="form-check-label">
+							<input type="checkbox" class="form-check-input" value="">Pet sit in my home
+						</label>
+					  </div>
+					</div>
+					<div class="form-group">
+					  <label class="col-md-3 control-label" for="message"><b>I can  take care of </b></label>
+					  <div class="col-md-9">
+						<label class="form-check-label">
+							<input type="checkbox" class="form-check-input" value="">Dogs
+						</label>
+						<br/>
+						<label class="form-check-label">
+							<input type="checkbox" class="form-check-input" value="">Cats
+						</label>
+						<br/>
+							<label class="form-check-label">
+							<input type="checkbox" class="form-check-input" value="">Birds
+						</label>
+						<br/>
+							<label class="form-check-label">
+							<input type="checkbox" class="form-check-input" value="">Small Mammals
+						</label>
+						<br/>
+							<label class="form-check-label">
+							<input type="checkbox" class="form-check-input" value="">Fish
+						</label>
+						<br/>
+						<label class="form-check-label">
+							<input type="checkbox" class="form-check-input" value="">Reptiles
+						</label>
+						<br/>
 
-				<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Others
-				</label>
-				<br/>
-              </div>
-			 </div> 
-			  <div class="form-group">
-              <label class="col-md-3 control-label" for="message">I can Ofer </label>
-              <div class="col-md-9">
-				<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Walks
-				</label>
-				<br/>
-				<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Giviing Medications
-				</label>
-				<br/>
-					<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Training
-				</label>
-				<br/>
-					<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Grooming
-				</label>
-				<br/>
-					<label class="form-check-label">
-					<input type="checkbox" class="form-check-input" value="">Others
-					<br/>
-					<textarea class="form-control" rows="5" id="comment"></textarea>
-				</label>
-				<br/>
+						<label class="form-check-label">
+							<input type="checkbox" class="form-check-input" value="">Others
+						</label>
+						<br/>
+					  </div>
+					 </div> 
+					<div class="form-group">
+						<label class="col-md-3 control-label" for="message"><b>I can Ofer </b></label>
+						<div class="col-md-9">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="">Walks
+							</label>
+							<br/>
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="">Giviing Medications
+							</label>
+							<br/>
+								<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="">Training
+							</label>
+							<br/>
+								<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="">Grooming
+							</label>
+							<br/>
+								<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="">Others
+								<br/>
+								<textarea class="form-control" rows="5" id="comment"></textarea>
+							</label>
+							<br/>
+							<br/>
+						</div>
+					</div>
 				
-				<br/>
+					</div>
+					<div class="col-lg-5">
+					<div class="form-group">
+              <label class="col-md-3 control-label" for="message">Public Bio</label>
+              <div class="col-md-9">
+                <textarea class="form-control" id="message" name="message" placeholder="People searching for petsitters will see this" rows="5"></textarea>
               </div>
             </div>
-			
-
-            <!-- Form actions -->
-            <div class="form-group">
-              <div class="col-md-12 text-center">
-             
-                <button type="submit" class="btn btn-primary btn-md">Submit</button>
-                <button type="reset" class="btn btn-default btn-md">Clear</button>
-              </div>
-            </div>
-          </fieldset>
-          </form>
-		  </div>
-		  <div class="col-sm">2 of 2</div>
+				<div class="form-group">
+					  <div class="col-md-12 text-center">
+						<button type="submit" class="btn btn-primary btn-md">Save changes</button>
+						
+					  </div>
+					</div>
+					</div >
+					<div>
+					</div>
+				</fieldset>
+			</form>
+		
+		
+	
 </div>
-</div>
+</body>
+</html>
