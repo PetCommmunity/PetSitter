@@ -8,25 +8,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link href="petsitter.css" rel="stylesheet" id="bootstrap-local">
 </head>
 <body>
 
-
 <div class="container">
-	
-		
-			<form class="form-horizontal" action="send.php" method="post">
-				<fieldset>
-				<div class="row">
-				<div class="col-lg-7">
+	<form class="form-horizontal" action="send.php" method="post">
+		<fieldset>
+			<div class="row no-gutter" >
+				<div class="col-md-7">
 					<div class="form-group">
-					  <label class="col-md-3 control-label" for="message">Base Rate per day</label>
+					  <label for="rate">Base Rate per day</label>
 					  <div class="col-md-2">
 						<Input type="text" class="form-control" id="rate" name="rate" />
 					  </div>
 					</div>
 					<div class="form-group">
-					  <label class="col-md-3 control-label" for="message" ><b>I can</b> </label>
+					  <label><b>I can</b> </label>
 					  <div class="col-md-9">
 						<label class="form-check-label">
 							<input type="checkbox" class="form-check-input" value="">visit owners home
@@ -38,7 +36,7 @@
 					  </div>
 					</div>
 					<div class="form-group">
-					  <label class="col-md-3 control-label" for="message"><b>I can  take care of </b></label>
+					  <label><b>I can  take care of </b></label>
 					  <div class="col-md-9">
 						<label class="form-check-label">
 							<input type="checkbox" class="form-check-input" value="">Dogs
@@ -71,8 +69,12 @@
 						<br/>
 					  </div>
 					 </div> 
+					
+				
+				</div>
+				<div class="col-md-5">
 					<div class="form-group">
-						<label class="col-md-3 control-label" for="message"><b>I can Ofer </b></label>
+						<label for="message"><b>I can Ofer </b></label>
 						<div class="col-md-9">
 							<label class="form-check-label">
 								<input type="checkbox" class="form-check-input" value="">Walks
@@ -99,29 +101,22 @@
 							<br/>
 						</div>
 					</div>
-				
-					</div>
-					<div class="col-lg-5">
 					<div class="form-group">
-              <label class="col-md-3 control-label" for="message">Public Bio</label>
-              <div class="col-md-9">
-                <textarea class="form-control" id="message" name="message" placeholder="People searching for petsitters will see this" rows="5"></textarea>
-              </div>
-            </div>
-				<div class="form-group">
-					  <div class="col-md-12 text-center">
-						<button type="submit" class="btn btn-primary btn-md">Save changes</button>
-						
-					  </div>
+						<label for="message">Public Bio</label>
+						<div class="col-md-9">
+							<textarea class="form-control" id="message" name="message" placeholder="People searching for petsitters will see this" rows="5"></textarea>
+						</div>
 					</div>
-					</div >
-					<div>
+					<div class="form-group">
+						  <div class="col-md-12 text-center">
+							<button type="submit" class="btn btn-primary btn-md">Save changes</button>
+							
+						  </div>
 					</div>
-				</fieldset>
-			</form>
-		
-		
-	
-</div>
+				</div >
+			</div>
+		</fieldset>
+	</form>
+	</div>
 </body>
 </html>
