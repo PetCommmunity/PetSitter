@@ -14,33 +14,46 @@
   </head>
   <body>
     <div class="container">
+	
       <form class="form-vertical" action="send.php" method="post">
         <fieldset>
-          <div class="form-group">
-          <label for="name">Name</label> 
-          <input type="text" class="form-control" id="name" name="name" /> 
-          <label for="name">Age</label> 
-          <input type="text" class="form-control" id="age" name="age" /> 
-          <label for="sel1">Type</label> 
-          <select class="form-control" id="sel1">
-            <option>Dog</option>
-            <option>Cat</option>
-            <option>Bird</option>
-            <option>Small Mammal</option>
-            <option>Fish</option>
-            <option>Reptile</option>
-            <option>Other</option>
-          </select> 
-          <label for="breed">Breed</label> 
-          <input type="text" class="form-control" id="breed" name="breed" /> 
-          <label for="size">Size</label> 
-          <select class="form-control" id="size">
-            <option>Small</option>
-            <option>Medium</option>
-            <option>Large</option>
-          </select></div>
+          <div class="card" style="width:400px">
+            <img class="card-img-top" src="cat.jpeg" alt="cat" />
+            <div class="card-body">
+            <label for="name">Name</label> 
+            <input type="text" class="form-control" id="name" name="name" /> 
+            <label for="name">Age</label> 
+            <input type="text" class="form-control" id="age" name="age" /> 
+            <label for="sel1">Type</label> 
+            <select class="form-control" id="sel1">
+              <option>Dog</option>
+              <option>Cat</option>
+              <option>Bird</option>
+              <option>Small Mammal</option>
+              <option>Fish</option>
+              <option>Reptile</option>
+              <option>Other</option>
+            </select> 
+            <label for="breed">Breed</label> 
+            <input type="text" class="form-control" id="breed" name="breed" /> 
+            <label for="size">Size</label> 
+            <select class="form-control" id="size">
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+            </select> 
+            <label for="petdescription">Description</label> 
+            <textarea class="form-control" id="petdescription" name="petdescription"
+            placeholder="Enter detailed description of the pet" rows="4"></textarea> 
+            <button type="submit" class="btn btn-primary btn-md">Save changes</button></div>
+          </div>
         </fieldset>
       </form>
+      <div class="card" style="width:400px">
+	  <div class="card-body">
+	  add pet
+	  </div>
+	  </div>
     </div>
   </body>
 </html>
