@@ -6,6 +6,7 @@
     <title>Pet sitter profile</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -14,46 +15,51 @@
   </head>
   <body>
     <div class="container">
-	
-      <form class="form-vertical" action="send.php" method="post">
-        <fieldset>
-          <div class="card" style="width:400px">
-            <img class="card-img-top" src="cat.jpeg" alt="cat" />
-            <div class="card-body">
-            <label for="name">Name</label> 
-            <input type="text" class="form-control" id="name" name="name" /> 
-            <label for="name">Age</label> 
-            <input type="text" class="form-control" id="age" name="age" /> 
-            <label for="sel1">Type</label> 
-            <select class="form-control" id="sel1">
-              <option>Dog</option>
-              <option>Cat</option>
-              <option>Bird</option>
-              <option>Small Mammal</option>
-              <option>Fish</option>
-              <option>Reptile</option>
-              <option>Other</option>
-            </select> 
-            <label for="breed">Breed</label> 
-            <input type="text" class="form-control" id="breed" name="breed" /> 
-            <label for="size">Size</label> 
-            <select class="form-control" id="size">
-              <option>Small</option>
-              <option>Medium</option>
-              <option>Large</option>
-            </select> 
-            <label for="petdescription">Description</label> 
-            <textarea class="form-control" id="petdescription" name="petdescription"
-            placeholder="Enter detailed description of the pet" rows="4"></textarea> 
-            <button type="submit" class="btn btn-primary btn-md">Save changes</button></div>
-          </div>
-        </fieldset>
-      </form>
-      <div class="card" style="width:400px">
-	  <div class="card-body">
-	  add pet
-	  </div>
-	  </div>
+      <div class="card-columns">
+        <div class="card bg-light">
+		 <img class="card-img-top" src="cat.jpeg" alt="cat" />
+		 <div class="card-body">
+          <form class="form-vertical" action="send.php" method="post">
+            <fieldset>
+             
+              
+              <label for="name">Name</label> 
+              <input type="text" class="form-control" id="name" name="name" /> 
+              <label for="name">Age</label> 
+              <input type="text" class="form-control" id="age" name="age" /> 
+              <label for="sel1">Type</label> 
+              <select class="form-control" id="sel1">
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Bird</option>
+                <option>Small Mammal</option>
+                <option>Fish</option>
+                <option>Reptile</option>
+                <option>Other</option>
+              </select> 
+              <label for="breed">Breed</label> 
+              <input type="text" class="form-control" id="breed" name="breed" /> 
+              <label for="size">Size</label> 
+              <select class="form-control" id="size">
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+              </select> 
+              <label for="petdescription">Description</label> 
+              <textarea class="form-control" id="petdescription" name="petdescription"
+              placeholder="Enter detailed description of the pet" rows="4"></textarea> 
+              <button type="submit" class="btn btn-primary btn-md">Save changes</button>
+            </fieldset>
+          </form>
+		  </div>
+        </div>
+        <div class="card" class="card bg-light">
+		 
+          <div class="card-body">
+		  <button class="fas fa-plus"></button>
+		  Add New Pet</div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
