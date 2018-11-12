@@ -11,7 +11,52 @@
   <link href="petsitter.css" rel="stylesheet" id="bootstrap-local">
 </head>
 <body>
+<nav class="navbar navbar-expand-md navbar-expand-lg navbar-lorder-1 order-md-0 bg-light">
+      <a class="navbar-brand" href="#">FindAPetSitter.com</a>
+    <div class="navbar-collapse collapse w-100  dual-collapse2">
+      <input class="form-control" type="search" placeholder="Search a person or location" aria-label="Search">
+        
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              
+              <img src="Images/whiteshirt copy 2.jpg" class="img-thumbnail" alt = "menu" height ="50" width = "50">
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Requests</a>
+                <a class="dropdown-item" href="#">History</a>
+                <a class="dropdown-item" href="#">Reviews</a>
+              </div>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li> -->
+        </ul>
+    </div>
+    
+</nav>
+<div>
 
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" href="#">My Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="#">My Pets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Pet Sitter Settings</a>
+    </li>
+    <!-- <li class="nav-item">
+      <a class="nav-link disabled" href="#">Pet Sitter Settings</a>
+    </li> -->
+  </ul>
+
+</div>
+<br>
 <div class="container">
 	<form class="form-horizontal" action="send.php" method="post">
 		<fieldset>
@@ -74,7 +119,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="form-group">
-						<label for="message"><b>I can Ofer </b></label>
+						<label for="message"><b>I can offer </b></label>
 						<div class="col-md-9">
 							<label class="form-check-label">
 								<input type="checkbox" class="form-check-input" value="">Walks
