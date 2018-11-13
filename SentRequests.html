@@ -11,6 +11,16 @@
 
   <title>Sent Requests</title>
   
+	<script>
+function myFunction() {
+	var x = document.getElementById("record");
+	x.style.display = "none";
+  alert("Request Cencelled!");
+}
+</script>
+	
+	
+	
   <style>
 	.record {
     background-color: #F8F8F8;
@@ -80,7 +90,7 @@
 						</tr>
 					</table>
 					<br>
-					<button type="button" class="btn btn-primary">Cancel Request</button>
+					<button id="cancel" type="button" class="btn btn-primary" onclick="myFunction()">Cancel Request</button>
 				</div>
 			  
             </div>
