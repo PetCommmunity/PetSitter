@@ -153,9 +153,13 @@ function myFunction() {
       sessionStorage.setItem("userPassword", inputPassword);
       if(isPetOwner){
         sessionStorage.setItem("isPetOwner", "true");
+      }else{
+        sessionStorage.setItem("isPetOwner", "false");
       }
       if(isPetSitter){
         sessionStorage.setItem("isPetSitter", "true");
+      }else{
+        sessionStorage.setItem("isPetSitter", "false");
       }
       sessionStorage.setItem("userIsPetOwner", isPetOwner);
       sessionStorage.setItem("editProfile", "true");

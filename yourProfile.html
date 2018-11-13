@@ -141,7 +141,8 @@
       var ispetsit = sessionStorage.getItem("isPetSitter");
       console.log(ispetsit);
       if(sessionStorage.getItem("isPetSitter") != "true"){
-        $("#petSitterTab").prop("disabled", true);
+        console.log("here");
+        $("#petSitterTab").addClass("disabled")
       }
       if(sessionStorage.getItem("editProfile") === "true"){
         var userEmail = sessionStorage.getItem("userEmail");
