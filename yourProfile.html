@@ -45,7 +45,7 @@
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               
-              <img src="Images/whiteshirt copy 2.jpg" class="img-thumbnail" alt = "menu" height ="50" width = "50">
+              <img src="Images/blank_user.png" class="img-thumbnail" alt = "menu" height ="50" width = "50">
               </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="yourProfile.html">Profile</a>
@@ -71,7 +71,7 @@
       <a class="nav-link" href="#">My Pets</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Pet Sitter Settings</a>
+      <a id="petSitterTab" class="nav-link" href="#">Pet Sitter Settings</a>
     </li>
     <!-- <li class="nav-item">
       <a class="nav-link disabled" href="#">Pet Sitter Settings</a>
@@ -82,7 +82,7 @@
 
 <div class="p-4">
   <div class="card" style="width: 18rem; height: 18rem;">
-    <img class="card-img-top" src="Images/whiteshirt copy 2.jpg" alt="Card image cap">
+    <img class="card-img-top" src="Images/blank_user.png" alt="Card image cap">
     
   </div>
 
@@ -101,13 +101,13 @@
     </div>
     <div class="input-group col-4">
     <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+        <label class="input-group-text" for="gender">Gender</label>
       </div>
-      <select class="custom-select" id="inputGroupSelect01">
+      <select class="custom-select" id="gender">
         <option selected>Choose...</option>
-        <option value="1">Male</option>
-        <option value="2">Female</option>
-        <option value="3">Nonbinary</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Nonbinary">Nonbinary</option>
     </select>
   </div>
   <br>
@@ -121,19 +121,95 @@
       <input type="text" class="form-control" id="Address" placeholder="Enter Address">
     </div>
   <div class="form-group col-4">
-    <label for="example-tel-input" class="col-form-label">Telephone</label>
+    <label for="phoneNum" class="col-form-label">Telephone</label>
     <div>
-      <input class="form-control" type="tel" value="1-(xxx)-xxx-xxxx" id="example-tel-input">
+      <input class="form-control" type="tel" value="1-(xxx)-xxx-xxxx" id="phoneNum">
     </div>
 </div>
   <div class="form-group col-4">
-  <button type="submit" class="btn btn-primary">Save Changes</button>
+  <!-- <button id="saveChangesButton" type="submit" class="btn btn-primary" onSubmit="saveChangesFunction()">Save Changes</button> -->
 </div>
   </form>
-   
+   <button id="saveChangesButton" type="click" class="btn btn-primary collapse" onclick="saveChangesFunction()">Save Changes</button>
+   <button id="editButton" type="click" class="btn btn-primary" onclick="editButtonFunction()">Edit Profile</button>
+
 </div>
 
- 
+ <script type="text/javascript">
+  $(document).ready(function(){
+      console.log("ready");
+      var ispetsit = sessionStorage.getItem("isPetSitter");
+      console.log(ispetsit);
+      if(sessionStorage.getItem("isPetSitter") != "true"){
+        $("#petSitterTab").prop("disabled", true);
+      }
+      if(sessionStorage.getItem("editProfile") === "true"){
+        var userEmail = sessionStorage.getItem("userEmail");
+        $("#email1").attr("placeholder", userEmail);
+        $("#saveChangesButton").show();
+        $("#editButton").hide();
+      } else{
+        setInputValues();
+        
+      }
+      
+
+    });
+
+  function editButtonFunction(){
+    $("#editButton").hide();
+    $("#saveChangesButton").show();
+    setReadOnly(false);
+  }
+
+  function setInputValues(){
+    console.log("supposed to set values");
+    var userEmail = sessionStorage.getItem("userEmail");
+    var firstName = sessionStorage.getItem("firstName");
+    var lastName = sessionStorage.getItem("lastName");
+    var gender = sessionStorage.getItem("gender");
+    var phoneNum = sessionStorage.getItem("phoneNum");
+    var address = sessionStorage.getItem("address");
+    console.log(userEmail);
+    console.log(gender)
+    $("#email1").attr("placeholder", userEmail);
+    $("#firstName").val(firstName);
+    $("#lastName").val(lastName);
+    $("#gender").val(gender);
+    $("#phoneNum").val(phoneNum);
+    $("#Address").val(address);
+    setReadOnly(true);
+  }
+
+  function setReadOnly(canRead){
+    // $("#email1").prop("readonly", canRead);
+    $("#firstName").prop("readonly", canRead);
+    $("#lastName").prop("readonly", canRead);
+    $("#gender").prop("disabled", canRead);
+    $("#phoneNum").prop("readonly", canRead);
+    $("#Address").prop("readonly", canRead);
+  }
+
+ function saveChangesFunction(){
+  var firstName = $("#firstName").val();
+  var lastName = $("#lastName").val();
+  var gender = $("#gender").val();
+  var phoneNum = $("#phoneNum").val();
+  var address = $("#Address").val();
+  console.log(address);
+  // console.log(gender);
+  sessionStorage.setItem("firstName", firstName);
+  sessionStorage.setItem("lastName", lastName);
+  sessionStorage.setItem("gender", gender);
+  sessionStorage.setItem("phoneNum", phoneNum);
+  sessionStorage.setItem("address", address);
+  $("#saveChangesButton").hide();
+  sessionStorage.setItem("editProfile", "false");
+  $("#editButton").show();
+  setReadOnly(true);
+}
+
+ </script>
 
         
     <!-- Optional JavaScript -->

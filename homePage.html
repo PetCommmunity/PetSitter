@@ -45,7 +45,7 @@
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               
-              <img src="Images/whiteshirt copy 2.jpg" class="img-thumbnail" alt = "menu" height ="50" width = "50">
+              <img src="Images/blank_user.png" class="img-thumbnail" alt = "menu" height ="50" width = "50">
               </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="yourProfile.html">Profile</a>
@@ -98,6 +98,14 @@
   </div>
 </div>
  
+ <script>
+    $(document).ready(function(){
+      console.log("ready");
+      userEmail = sessionStorage.getItem("userEmail");
+      console.log(userEmail);
+    });
+
+ </script>
 
         
     <!-- Optional JavaScript -->

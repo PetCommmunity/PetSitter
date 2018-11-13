@@ -89,8 +89,10 @@
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div> -->
-                <button type="submit" class="btn btn-primary">Login</button>
+                <!-- <button type="click" class="btn btn-primary" onclick="loginFunction()">Login</button> -->
               </form>
+              <button type="click" class="btn btn-primary" onclick="loginFunction()">Login</button>
+              <br>
               <br>
                 <h6 class="card-title">Don't have an account?</h6>
                 <!-- <p class="card-text"></p> -->
@@ -104,6 +106,7 @@
         <br>
         <input class="form-control col-5" type="search" placeholder="Search a person or location" aria-label="Search">
         <br>
+
         <label for="fromDate"> From </label> 
         <input id="fromDate" placeholder="MM/DD/YYYY" width="276" />
         <label for="toDate"> To </label> 
@@ -115,7 +118,22 @@
     </div>
   </div>
 </div>
- 
+
+
+<!-- MY FUCKING LOGIN SCRIPT -->
+ <script>
+  function loginFunction(){
+    console.log("helooo")
+    var inputEmail = $("#exampleInputEmail1").val();
+    var inputPassword = $("#exampleInputPassword1").val()
+    // console.log("helloooo");
+    sessionStorage.setItem("userEmail", inputEmail);
+    sessionStorage.setItem("userPassword", inputPassword);
+    // console.log(sessionStorage.getItem("userEmail"))
+    window.location.href = "./homePage.html"
+
+  }
+ </script>
 
         
     <!-- Optional JavaScript -->
