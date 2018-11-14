@@ -12,10 +12,12 @@
   <title>Sent Requests</title>
   
 	<script>
+
 function myFunction() {
-	var x = document.getElementById("record");
-	x.style.display = "none";
-  alert("Request Cencelled!");
+$("#requestInfo").hide();
+$("#cancel").hide();
+document.getElementById("note").innerHTML = "You don't have any requests..";
+alert("Request Cencelled!");
 }
 </script>
 	
@@ -90,6 +92,7 @@ function myFunction() {
 						</tr>
 					</table>
 					<br>
+					<p id="note" ></p>
 					<button id="cancel" type="button" class="btn btn-primary" onclick="myFunction()">Cancel Request</button>
 				</div>
 			  
