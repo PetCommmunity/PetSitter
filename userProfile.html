@@ -30,10 +30,10 @@
           <img src="Images/whiteshirt copy 2.jpg" class="img-thumbnail" alt = "menu" height ="50" width = "50">
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Profile</a>
-          <a class="dropdown-item" href="#">Requests</a>
-          <a class="dropdown-item" href="#">History</a>
-          <a class="dropdown-item" href="#">Reviews</a>
+       <a class="dropdown-item" href="userProfile.html">Profile</a>
+                <a class="dropdown-item" href="SentRequests.html">Requests</a>
+                <a class="dropdown-item" href="SittingHistory.html">History</a>
+                <a class="dropdown-item" href="RecievedReviews.html">Reviews</a>
         </div>
       </li>
             <!-- <li class="nav-item">
@@ -68,7 +68,7 @@
               <p>Availability:</p>
             </div>
             <div class="col">
-              <button type="button" class="btn btn-primary">Send a Request</button>
+              <button type="button" class="btn btn-primary" onClick="sendRequest()">Send a Request</button>
               <br>
               <small>Contact Bowen by</small>
               <br>
@@ -108,7 +108,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-        <script src="userProfile.js"></script>
+        <script>
+		function sendRequest(){
+		window.location.href="./SendRequest.html"
+		}
+		</script>
       </body>
       </html>
 
