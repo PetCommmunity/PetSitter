@@ -9,6 +9,14 @@
 
     <title>Register</title>
     
+    <script>
+function myFunction() {
+    //document.getElementById("submit").innerHTML = "Paragraph changed.";
+  alert("You are successfully registered!");
+  window.location = "loginPage.html";
+}
+</script>
+    
     <style>
  .no-padding {
   padding-left: 0;
@@ -77,6 +85,9 @@
                 <h1 class="card-title">Make a new account</h1>
                <form action ="yourProfile.html">
                 <div class="form-group">
+                  <div id="passwordsNoMatchRegister" class="alert alert-danger collapse" role="alert" >
+  Passwords Do Not Match!
+</div>
                   <label for="exampleInputEmail1">Email address</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                   <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
@@ -91,19 +102,24 @@
                 </div>
                 <h5> Register as a </h5>
                 <div class="form-group form-check d-inline col-3">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <input type="checkbox" class="form-check-input" id="petOwnerCheck">
                   <label class="form-check-label" for="exampleCheck1">Pet Owner</label>
                 </div>
                 <div class="form-group form-check d-inline col-3">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <input type="checkbox" class="form-check-input" id="petSitterCheck">
                   <label class="form-check-label" for="exampleCheck1">Pet Sitter</label>
                 </div>
                 <br>
                 <br>
                 <div>
+<<<<<<< HEAD
                 <button type="submit" id="register" class="btn btn-primary">Register</button>
+=======
+                
+>>>>>>> ff4591d12afdd018a9318455ffe5809b812994cd
               </div>
               </form>
+                <button type="click" class="btn btn-primary"  onclick="registerFunction()">Register</button>
               
               </div>
             </div>
@@ -125,7 +141,43 @@
     </div>
   </div>
 </div>
- 
+
+
+  <script>
+  function registerFunction(){
+    var inputEmail = $("#exampleInputEmail1").val();
+    var inputPassword = $("#exampleInputPassword1").val()
+    var confirmPassword = $("#exampleInputPassword2").val()
+    var isPetOwner = $("#petOwnerCheck").is(":checked");
+    var isPetSitter = $("#petSitterCheck").is(":checked");
+    // console.log(isPetOwner);
+    if(inputPassword === confirmPassword){
+      // console.log("helloooo");
+      sessionStorage.setItem("userEmail", inputEmail);
+      sessionStorage.setItem("userPassword", inputPassword);
+      if(isPetOwner){
+        sessionStorage.setItem("isPetOwner", "true");
+      }else{
+        sessionStorage.setItem("isPetOwner", "false");
+      }
+      if(isPetSitter){
+        sessionStorage.setItem("isPetSitter", "true");
+      }else{
+        sessionStorage.setItem("isPetSitter", "false");
+      }
+      sessionStorage.setItem("userIsPetOwner", isPetOwner);
+      sessionStorage.setItem("editProfile", "true");
+      // console.log(sessionStorage.getItem("userEmail"))
+      window.location.href = './yourProfile.html';
+      
+    }else{
+      $('#passwordsNoMatchRegister').show();
+    }
+    
+
+  }
+ </script>
+
 
         
     <!-- Optional JavaScript -->

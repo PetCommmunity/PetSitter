@@ -11,6 +11,18 @@
 
   <title>Sent Requests</title>
   
+	<script>
+
+function myFunction() {
+$("#requestInfo").hide();
+$("#cancel").hide();
+document.getElementById("note").innerHTML = "You don't have any requests..";
+alert("Request Cencelled!");
+}
+</script>
+	
+	
+	
   <style>
 	.record {
     background-color: #F8F8F8;
@@ -71,7 +83,7 @@
 							<th>Modhi</th> 
 						</tr>
 						<tr>
-							<th>Oct 13 - Oct 15</th> 
+							<th>Oct 21 - Oct 24</th> 
 						</tr>
 						<tr>
 							<th> <img src="Images/email.png" alt="icon" width="20" height="20"><a href="">&nbsp;Email</a>
@@ -80,7 +92,8 @@
 						</tr>
 					</table>
 					<br>
-					<button type="button" class="btn btn-primary">Cancel Request</button>
+					<p id="note" >Accepted</p>
+					<button id="cancel" type="button" class="btn btn-primary" onclick="myFunction()">Cancel Request</button>
 				</div>
 			  
             </div>
