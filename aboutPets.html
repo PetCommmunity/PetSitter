@@ -11,6 +11,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="aboutpets.js">
+    
+    </script>
     <link href="petsitter.css" rel="stylesheet" id="bootstrap-local" />
   </head>
   <body>
@@ -61,8 +64,8 @@
 </div>
 <br>
     <div class="container-fluid">
-      <div class="card-columns">
-        <div class="card bg-light">
+      <div class="card-columns" id="petcards">
+        <div class="card bg-light" id="firstpetcard">
 		 <img class="card-img-top" src="Images/cat_photo.jpg" alt="cat" />
 		 <div class="card-body">
           <form class="form-vertical" action="homePage.html" method="post">
@@ -100,11 +103,13 @@
           </form>
 		  </div>
         </div>
-        <div class="card" class="card bg-light">
+        <div class="card" id="addpetcard" class="card bg-light">
 		 
           <div class="card-body">
-		  <button class="fas fa-plus"></button>
-		  Add New Pet</div>
+		  <button class="fas fa-plus" id="addpet"></button>
+      Add New Pet
+      <button id="btn1">Show Old/New Text</button>
+    </div>
         </div>
       </div>
     </div>
