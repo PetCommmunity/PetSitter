@@ -1,7 +1,14 @@
 $(document).ready(function(){
     $("#addpet").click(function(){
    var clonedform=$("#firstpetcard").clone();
-  
+   $("#name", clonedform).val("");
+   $("#age", clonedform).val("");
+   $("#breed", clonedform).val("");
+   $("#petdescription", clonedform).val("");
+   $("#img-upload", clonedform).attr("src","");
+   
+   $("#imgInp", clonedform).val("");
+   
   clonedform.insertBefore("#addpetcard");
     });
     $(document).on('change', '.btn-file :file', function() {
@@ -18,7 +25,7 @@ $(document).ready(function(){
 		    if( input.length ) {
 		        input.val(log);
 		    } else {
-		        if( log ) alert(log);
+		       // if( log ) alert(log);
 		    }
 	    
 		});
