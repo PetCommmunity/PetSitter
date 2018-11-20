@@ -66,11 +66,20 @@
     <div class="container-fluid">
       <div class="card-columns" id="petcards">
         <div class="card bg-light" id="firstpetcard">
-		 <img class="card-img-top" src="Images/cat_photo.jpg" alt="cat" />
+		 <img class="card-img-top"  id="img-upload" />
 		 <div class="card-body">
           <form class="form-vertical" action="homePage.html" method="post">
             <fieldset>
-             
+                <label>Pet Image</label>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            Browse… <input type="file" id="imgInp">
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" readonly>
+                </div>
+                <!--img lass="card-img-top" lass="card-img-top" id='img-upload'/-->
               
               <label for="name">Name</label> 
               <input type="text" class="form-control" id="name" name="name" /> 
