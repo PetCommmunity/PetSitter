@@ -20,7 +20,7 @@
     <nav class="navbar navbar-expand-md navbar-expand-lg navbar-lorder-1 order-md-0 bg-light">
       <a class="navbar-brand" href="#">FindAPetSitter.com</a>
     <div class="navbar-collapse collapse w-100  dual-collapse2">
-      <input class="form-control" type="search" placeholder="Search a person or location" aria-label="Search">
+      <input class="form-control" type="search" id="search" placeholder="Search a person or location" aria-label="Search" onkeydown="searchPetSitter()">
         
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
@@ -48,13 +48,13 @@
 
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link" href="#">My Profile</a>
+      <a class="nav-link" href="yourProfile.html">My Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="#">My Pets</a>
+      <a class="nav-link active" href="aboutpets.html">My Pets</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Pet Sitter Settings</a>
+      <a class="nav-link" href="petsitter.html">Pet Sitter Settings</a>
     </li>
     <!-- <li class="nav-item">
       <a class="nav-link disabled" href="#">Pet Sitter Settings</a>
@@ -111,7 +111,7 @@
           </form>
 		     <button id="saveChangesButton" type="click" class="btn btn-primary "onclick="saveChangesFunction()">Save Changes</button>
    <button id="editButton" type="click" class="btn btn-primary collapse" onclick="editButtonFunction()">Edit Profile</button>
-            <!--/fieldset-->
+            <!--/fieldset-- >
 		  </div>
         </div>
         <div class="card" id="addpetcard" class="card bg-light">

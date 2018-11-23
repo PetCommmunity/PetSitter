@@ -103,3 +103,14 @@ function setInputValues(){
     $("#saveChangesButton").show();
     setReadOnly(false);
   }
+  
+ 
+  
+ function searchPetSitter() {
+  // Cancel the default action, if needed
+
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+   window.location.href = "searchResults.html";
+  }
+};
