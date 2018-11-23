@@ -83,23 +83,27 @@ function myFunction() {
 
               <div class="card-body">
                 <h1 class="card-title">Make a new account</h1>
-               <form action ="yourProfile.html">
+               <form>
                 <div class="form-group">
-                  <div id="passwordsNoMatchRegister" class="alert alert-danger collapse" role="alert" >
-  Passwords Do Not Match!
-</div>
+                  
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
                   <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>
+                <div id="passwordsNoMatchRegister" class="alert alert-danger collapse" role="alert" >
+  Passwords Do Not Match!
+</div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword2">Confirm Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
                 </div>
+                <div id="checkBoxAlert" class="alert alert-danger collapse" role="alert">
+  You must select at least one!
+</div>
                 <h5> Register as a </h5>
                 <div class="form-group form-check d-inline col-3">
                   <input type="checkbox" class="form-check-input" id="petOwnerCheck">
@@ -109,12 +113,15 @@ function myFunction() {
                   <input type="checkbox" class="form-check-input" id="petSitterCheck">
                   <label class="form-check-label" for="exampleCheck1">Pet Sitter</label>
                 </div>
+
+                  
                 <br>
                 <br>
                 <div>
-                <button type="submit" id="register" class="btn btn-primary">Register</button>
+                
               </div>
               </form>
+              <button type="click" id="register" class="btn btn-primary" onclick="registerFunction()">Register</button>
               
               
               </div>
@@ -140,14 +147,39 @@ function myFunction() {
 
 
   <script>
-  function registerFunction(){
-    var inputEmail = $("#exampleInputEmail1").val();
-    var inputPassword = $("#exampleInputPassword1").val()
-    var confirmPassword = $("#exampleInputPassword2").val()
+
+  function validateCheckboxes(){
     var isPetOwner = $("#petOwnerCheck").is(":checked");
     var isPetSitter = $("#petSitterCheck").is(":checked");
-    // console.log(isPetOwner);
-    if(inputPassword === confirmPassword){
+    if(!isPetOwner && !isPetSitter){
+      console.log("hereeeee iddnt show");
+      $('#checkBoxAlert').show();
+      return false;
+    }
+    return true;
+  }
+
+  function validatePassword(){
+    var inputPassword = $("#exampleInputPassword1").val();
+    var confirmPassword = $("#exampleInputPassword2").val();
+    if(inputPassword != confirmPassword){
+      $('#passwordsNoMatchRegister').show();
+      return false;
+    }
+    return true;
+
+  }
+
+  function registerFunction(){
+    var inputEmail = $("#exampleInputEmail1").val();
+    var inputPassword = $("#exampleInputPassword1").val();
+    var confirmPassword = $("#exampleInputPassword2").val();
+    var isPetOwner = $("#petOwnerCheck").is(":checked");
+    var isPetSitter = $("#petSitterCheck").is(":checked");
+    var canRegister = validatePassword();
+    var canRegister = validateCheckboxes() && canRegister;
+    console.log(canRegister);
+    if(canRegister){
       // console.log("helloooo");
       sessionStorage.setItem("userEmail", inputEmail);
       sessionStorage.setItem("userPassword", inputPassword);
@@ -163,11 +195,10 @@ function myFunction() {
       }
       sessionStorage.setItem("userIsPetOwner", isPetOwner);
       sessionStorage.setItem("editProfile", "true");
+      sessionStorage.setItem("justRegistered", "true");
       // console.log(sessionStorage.getItem("userEmail"))
       window.location.href = './yourProfile.html';
       
-    }else{
-      $('#passwordsNoMatchRegister').show();
     }
     
 

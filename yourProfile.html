@@ -79,7 +79,9 @@
   </ul>
 
 </div>
-
+<div id="successRegisterAlert" class="alert alert-success collapse" role="alert">
+  Registration successful. Please fill out the rest of your profile.
+</div>
 <div class="p-4">
   <div class="card" style="width: 18rem; height: 18rem;">
     <img class="card-img-top" src="Images/blank_user.png" alt="Card image cap">
@@ -89,6 +91,9 @@
 </div>
 
 <div class="container-fluid p-4">
+  <div id="saveChangesSuccess" class="alert alert-success collapse" role="alert">
+  Your changes have been saved successfully!
+</div>
   <form>
     <div class="form-group col-4">
       <label for="firstName">First Name</label>
@@ -143,6 +148,10 @@
       if(sessionStorage.getItem("isPetSitter") != "true"){
         console.log("here");
         $("#petSitterTab").addClass("disabled")
+      }
+      if(sessionStorage.getItem("justRegistered") === "true"){
+        $("#successRegisterAlert").show();
+        sessionStorage.setItem("justRegistered", "false");
       }
       if(sessionStorage.getItem("editProfile") === "true"){
         var userEmail = sessionStorage.getItem("userEmail");
@@ -207,6 +216,8 @@
   $("#saveChangesButton").hide();
   sessionStorage.setItem("editProfile", "false");
   $("#editButton").show();
+  $("#saveChangesSuccess").show();
+  $("#successRegisterAlert").hide();
   setReadOnly(true);
 }
 
