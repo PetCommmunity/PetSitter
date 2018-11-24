@@ -84,7 +84,7 @@
 </div>
 <div class="p-4">
   <div class="card" style="width: 18rem; height: 18rem;">
-    <img class="card-img-top" src="Images/blank_user.png" alt="Card image cap">
+    <img class="card-img-top" src="Images/blank_user.png" id="profilepic" alt="Card image cap">
     
   </div>
 
@@ -95,6 +95,14 @@
   Your changes have been saved successfully!
 </div>
   <form>
+     <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            profile pic &nbsp;&nbsp;<input type="file" id="imgInp">
+                        </span>
+                    </span>
+                    <!--input type="text" id="imageName" class="form-control" readonly-->
+                </div>
     <div class="form-group col-4">
       <label for="firstName">First Name</label>
       <input type="text" class="form-control" id="firstName"  placeholder="Enter First Name">
@@ -162,7 +170,40 @@
         setInputValues();
         
       }
-      
+        $(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+        });
+    
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		       // if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#profilepic').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		});
+   
 
     });
 
