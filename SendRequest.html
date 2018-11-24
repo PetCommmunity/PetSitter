@@ -52,17 +52,15 @@
   <p>Looks like the passwords you entered don't match!</p>
   </span>
 </div>
-<div id="successRegisterAlert" class="alert alert-success collapse" role="alert">
-  Registration successful. Please fill out the rest of your profile.
-</div>
-        <h1>Send Bowen a Request</h1>
-		<form action="homePage.html" ">
+
+        <h1>Send Modhi a Request</h1>
+		<form action="homePage.html">
         <label for="fromDate"> From </label> 
         <input id="fromDate" placeholder="MM/DD/YYYY" width="276" />
         <label for="toDate"> To </label> 
         <input id="toDate" placeholder="MM/DD/YYYY" width="276" />
        <br>
-        <button class="btn btn-primary"  type="submit" onclick="showSuccess()">Send</button>
+        <button class="btn btn-primary"  type="submit" onclick="alert('Request send')">Send</button>
 		</form>
 
 
@@ -77,7 +75,7 @@
             uiLibrary: 'bootstrap4'
         });
 		function showSuccess(){
-			 alert("Request send to Petsitter");
+	
 		}
 		</script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -88,4 +86,3 @@
       </body>
 	    
       </html>
-
