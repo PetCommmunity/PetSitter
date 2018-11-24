@@ -12,13 +12,17 @@ $(document).ready(function(){
   clonedform.insertBefore("#addpetcard");
     });
     $(document).on('change', '.btn-file :file', function() {
+		//	alert("hi");
 		var input = $(this),
 			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+			//alert(label);
 		input.trigger('fileselect', [label]);
+			$(this).parents('.card-img-top').attr("src",label);
         });
     
 		$('.btn-file :file').on('fileselect', function(event, label) {
 		    
+		//	alert("hi")
 		    var input = $(this).parents('.input-group').find(':text'),
 		        log = label;
 		    
@@ -27,6 +31,9 @@ $(document).ready(function(){
 		    } else {
 		       // if( log ) alert(log);
 		    }
+		//	alert(log);
+			$(this).parents('.card-img-top').attr("src",label);
+			//alert( $(this).parents('.card-img-top').src)
 	    
 		});
 		function readURL(input) {
@@ -34,6 +41,7 @@ $(document).ready(function(){
 		        var reader = new FileReader();
 		        
 		        reader.onload = function (e) {
+				
 		            $('#img-upload').attr('src', e.target.result);
 		        }
 		        
