@@ -9,6 +9,19 @@ $(document).ready(function(){
    
    $("#imgInp", clonedform).val("");
    
+   $("#name", clonedform).prop("readonly", false);
+   $("#age", clonedform).prop("readonly", false);
+   $("#breed", clonedform).prop("readonly", false);
+   $("#petdescription", clonedform).prop("readonly", false);
+    $("#type",clonedform).prop("disabled", false);
+  
+    $("#size",clonedform).prop("readonly", false);
+	$("#editButton",clonedform).hide();
+    $("#saveChangesButton",clonedform).show();
+   
+    // $("#saveChangesButton",clonedform).click(saveChangesFunctionclone(clonedform));
+  
+   
   clonedform.insertBefore("#addpetcard");
     });
     $(document).on('change', '.btn-file :file', function() {
@@ -122,3 +135,7 @@ function setInputValues(){
    window.location.href = "searchResults.html";
   }
 };
+
+function saveChangesFunctionclone(clone){
+	alert("hi")
+}
