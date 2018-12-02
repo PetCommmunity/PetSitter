@@ -124,6 +124,12 @@
  <script>
   function loginFunction(){
     console.log("helooo")
+	var isUserRegistered= sessionStorage.getItem("isUserRegistered");
+
+	if(!isUserRegistered){
+	alert("You are not registed, please register");
+	return;
+	}
     var inputEmail = $("#exampleInputEmail1").val();
     var inputPassword = $("#exampleInputPassword1").val()
     // console.log("helloooo");
