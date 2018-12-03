@@ -44,6 +44,7 @@ $("#cancel").show();
 
 function declineReq()
 {
+var reason = prompt("Please tell the pet owner why you declined the request", "");
 document.getElementById("status").innerHTML = "Declined";
 $("#accept").hide();
 $("#decline").hide();
