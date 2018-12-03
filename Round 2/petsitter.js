@@ -18,6 +18,9 @@ function setInputValues(){
  
  $("#fromDateSitting").val(sessionStorage.getItem("fromDateSitting"));
  $("#toDateSitting").val(sessionStorage.getItem("toDateSitting"));
+ if(sessionStorage.getItem("fromDateSitting")){
+	 $("#av").text("You are currently available in below dates");
+ }
  $("#walk").prop('checked', (sessionStorage.getItem("walk")));
  $("#medication").prop('checked', (sessionStorage.getItem("medication")));
  $("#training").prop('checked', (sessionStorage.getItem("training")));
@@ -72,7 +75,27 @@ function setInputValues(){
   sessionStorage.setItem("others", others);
   sessionStorage.setItem("comment", comment);
   sessionStorage.setItem("bio", bio);
-
-   
+  setReadOnly(readOnly);
+}
+function setReadOnly(readOnly){
+	 
+ $("#rate").prop('readonly', readOnly);
+ $("#visithome").prop('readonly', readOnly);
+ $("#sitatmyhome").prop('readonly', readOnly);
+ $("#cat").prop('readonly', readOnly);
+ $("#bird").prop('readonly', readOnly);
+ $("#mamal").prop('readonly', readOnly);
+ $("#other").prop('readonly', readOnly);
+ $("#fish").prop('readonly', readOnly);
+ $("#reptiles").prop('readonly', readOnly);
  
+ $("#fromDateSitting").val(sessionStorage.getItem("fromDateSitting"));
+ $("#toDateSitting").val(sessionStorage.getItem("toDateSitting"));
+ $("#walk").prop('checked', (sessionStorage.getItem("walk")));
+ $("#medication").prop('checked', (sessionStorage.getItem("medication")));
+ $("#training").prop('checked', (sessionStorage.getItem("training")));
+ $("#gromming").prop('checked', (sessionStorage.getItem("gromming")));
+ $("#others").prop('checked', (sessionStorage.getItem("other")));
+ $("#comment").val(sessionStorage.getItem("comment"));
+ $("#bio").val(sessionStorage.getItem("bio"));
 }
