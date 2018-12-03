@@ -18,7 +18,7 @@ function hideCancel()
 $("#cancel").hide();
 }
 function myFunction() {
-var reason = prompt("Please tell the pet owner why you cancelled the request", "");
+
 $("#requestInfo").hide();
 $("#cancel").hide();
 document.getElementById("status").innerHTML = "Cancelled by you.";
@@ -69,13 +69,19 @@ document.getElementById("status").innerHTML = "You don't have any requests recei
 </style>
   
 </head>
-<body onload="hideCancel()>
+<body onload="hideCancel()">
   <nav class="navbar navbar-expand-md navbar-expand-lg navbar-lorder-1 order-md-0 bg-light">
   
     <a class="navbar-brand" href="homePage.html">FindAPetSitter.com</a>
 	
     <div class="navbar-collapse collapse w-100  dual-collapse2">
-      <input class="form-control" type="search" placeholder="Search a person or location" aria-label="Search">
+            	  	<form action="searchResults.html">
+        <label for="fromDate"> From </label> 
+        <input id="fromDate" placeholder="MM/DD/YYYY" width="276" />
+        <label for="toDate"> To </label> 
+        <input id="toDate" placeholder="MM/DD/YYYY" width="276" />
+        <button class="btn btn-primary" type="submit">Search</button>
+		</form>
 
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
