@@ -13,12 +13,15 @@
   
   
 <script>
-
+function hideCancel()
+{
+$("#cancel").hide();
+}
 function myFunction() {
-
+var reason = prompt("Please tell the pet owner why you cancelled the request", "");
 $("#requestInfo").hide();
 $("#cancel").hide();
-
+document.getElementById("status").innerHTML = "Cancelled by you.";
 alert("Request Cencelled!");
 }
 
@@ -66,7 +69,7 @@ document.getElementById("status").innerHTML = "You don't have any requests recei
 </style>
   
 </head>
-<body>
+<body onload="hideCancel()>
   <nav class="navbar navbar-expand-md navbar-expand-lg navbar-lorder-1 order-md-0 bg-light">
   
     <a class="navbar-brand" href="homePage.html">FindAPetSitter.com</a>
@@ -165,8 +168,8 @@ document.getElementById("status").innerHTML = "You don't have any requests recei
 					<p id="status">Waiting ...</p>
 					<button id="view" type="button" class="btn btn-primary" onclick="viewReq()">View Request</button>
 					<button id="accept" type="button" class="btn btn-primary" onclick="acceptReq()">Accept Request</button>
-					<button id="decline" type="button" class="btn btn-primary" onclick="declineReq()">Decline Request</button> <br>
-					<button hidden id="cancel" type="button" class="btn btn-primary" onclick="myFunction()">Cancel Request</button>
+					<button id="decline" type="button" class="btn btn-primary" onclick="declineReq()">Decline Request</button>
+					<button id="cancel" type="button" class="btn btn-primary" onclick="myFunction()">Cancel Request</button>
 				</div>
 			  
             </div>
