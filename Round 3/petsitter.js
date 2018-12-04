@@ -3,6 +3,32 @@ $(document).ready(function(){
 	
 
 	setInputValues();
+	$("#otherpets").change(function(){
+		 if(this.checked) {
+			$("#comment2").prop('readonly', false);
+		}
+		else{
+			$("#comment2").prop('readonly', true);
+		}
+	})
+	
+		$("#otherameneties").change(function(){
+		 if(this.checked) {
+			$("#comment3").prop('readonly', false);
+		}
+		else{
+			$("#comment3").prop('readonly', true);
+		}
+	})
+	
+	$("#othersoffers").change(function(){
+		 if(this.checked) {
+			$("#comment4").prop('readonly', false);
+		}
+		else{
+			$("#comment4").prop('readonly', true);
+		}
+	})
 })
 
 function setInputValues(){
