@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  
+
+  <title>Received Requests</title>
+  
+  
+<script>
+function hideCancel()
+{
+$("#cancel").hide();
+}
+function myFunction() {
+
+$("#requestInfo").hide();
+$("#cancel").hide();
+document.getElementById("status").innerHTML = "Cancelled by you.";
+alert("Request Cencelled!");
+}
+
+
+function viewReq()
+{
+alert("Two chihuahuas that need to be taken for walks once every hour, and always need someone at home with them.");
+}
+
+function acceptReq()
+{
+document.getElementById("status").innerHTML = "Approved";
+$("#accept").hide();
+$("#decline").hide();
+$("#cancel").show();
+//var mytable document.getElementById("table");
+//mytable.
+//var btn = document.createElement("BUTTON");        // Create a <button> element
+//var t = document.createTextNode("CLICK ME");       // Create a text node
+//btn.appendChild(t);                                // Append the text to <button>
+//document.body.appendChild(btn);                    // Append <button> to <body>
+}
+
+function declineReq()
+{
+var reason = prompt("Please tell the pet owner why you declined the request", "");
+document.getElementById("status").innerHTML = "Declined";
+$("#accept").hide();
+$("#decline").hide();
+$("#view").hide()
+$("#table").hide();
+document.getElementById("status").innerHTML = "You don't have any requests received..";
+}
+
+
+</script>
+  
+  <style>
+	.record {
+    background-color: #F8F8F8;
+    color: black;
+    margin-bottom: 20px;
+    padding: 20px;
+	} 
+</style>
+  
+</head>
+<body onload="hideCancel()">
+  <nav class="navbar navbar-expand-md navbar-expand-lg navbar-lorder-1 order-md-0 bg-light">
+  
+    <a class="navbar-brand" href="homePage.html">FindAPetSitter.com</a>
+	
+    <div class="navbar-collapse collapse w-100  dual-collapse2">
+            	  	<form action="searchResults.html">
+        <label for="fromDate"> From </label> 
+        <input id="fromDate" placeholder="MM/DD/YYYY" width="276" />
+        <label for="toDate"> To </label> 
+        <input id="toDate" placeholder="MM/DD/YYYY" width="276" />
+        <button class="btn btn-primary" type="submit">Search</button>
+		</form>
+
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              
+              <img src="Images/blank_user.png" class="img-thumbnail" alt = "menu" height ="50" width = "50">
+              </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="yourProfile.html">My Profile</a>
+          <a class="dropdown-item" href="ReceivedRequests.html">Requests</a>
+          <a class="dropdown-item" href="SittingHistory.html">History</a>
+          <a class="dropdown-item" href="YourReviews.html">Reviews</a>
+        </div>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li> -->
+            </ul>
+          </div>
+
+        </nav>
+
+
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+				<br>
+				<table >
+					<tr>
+						<th>Recieved Requests</th> 
+					</tr>
+				</table>
+				<br>
+				<!-- <div class="record">
+					<table >
+						<tr>
+							<th>Modhi</th> 
+						</tr>
+						<tr>
+							<th>Oct 13 - Oct 15</th> 
+						</tr>
+						<tr>
+							<th> <img src="Images/email.png" alt="icon" width="20" height="20"><a href="">&nbsp;Email</a>
+							|	 <img src="Images/phone.png" alt="icon" width="20" height="20"><a href="">&nbsp;Phone</a>
+							</th>
+						</tr>
+					</table>
+					<br>
+					<p>Approved - ended</p>
+					<button type="button" class="btn btn-primary">View Request</button>
+					<button type="button" class="btn btn-primary">Cancel Request</button>
+				</div>
+				<div class="record">
+					<table >
+						<tr>
+							<th>John Smith</th> 
+						</tr>
+						<tr>
+							<th>Oct 15 - Oct 20</th> 
+						</tr>
+						<tr>
+							<th> <img src="Images/email.png" alt="icon" width="20" height="20"><a href="">&nbsp;Email</a>
+							|	 <img src="Images/phone.png" alt="icon" width="20" height="20"><a href="">&nbsp;Phone</a>
+							</th>
+						</tr>
+					</table>
+					<br>
+					<p>cancelled by requester</p>
+					<button type="button" class="btn btn-primary">View Request</button>
+				</div> -->
+				<div class="record">
+					<table id ="table">
+						<tr>
+							<th>Jane Doe</th> 
+						</tr>
+						<tr>
+							<th>Oct 21 - Oct 24</th> 
+						</tr>
+						<tr>
+							<th> <img src="Images/email.png" alt="icon" width="20" height="20"><a href="">&nbsp;Email</a>
+							|	 <img src="Images/phone.png" alt="icon" width="20" height="20"><a href="">&nbsp;Phone</a>
+							</th>
+						</tr>
+					</table>
+					<br>
+					<p id="status">Waiting ...</p>
+					<button id="view" type="button" class="btn btn-info" onclick="viewReq()">View Request</button>
+					<button id="accept" type="button" class="btn btn-success" onclick="acceptReq()">Accept Request</button>
+					<br>
+					<br>
+					<button id="decline" type="button" class="btn btn-danger" onclick="declineReq()">Decline Request</button>
+					<button id="cancel" type="button" class="btn btn-danger" onclick="myFunction()">Cancel Request</button>
+				</div>
+			  
+            </div>
+            <div class="col">
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      </body>
+      </html>
+
+
