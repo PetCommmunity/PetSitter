@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-md navbar-expand-lg navbar-lorder-1 order-md-0 bg-light">
     <a class="navbar-brand" href="homePage.html">FindAPetSitter.com</a>
     <div class="navbar-collapse collapse w-100  dual-collapse2">
-      <input class="form-control" type="search" placeholder="Search a person or location" aria-label="Search">
+      <input class="form-control" type="search" placeholder="Search a person or location" aria-label="Search" onkeydown="searchPetSitter()">
 
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
@@ -35,7 +35,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="yourProfile.html">Profile</a>
-          <a class="dropdown-item" href="SentRequests.html">Requests</a>
+          <a class="dropdown-item" href="sentRequests.html">Requests</a>
           <a class="dropdown-item" href="SittingHistory.html">History</a>
           <a class="dropdown-item" href="YourReviews.html">Reviews</a>
         </div>
@@ -47,22 +47,21 @@
           </div>
 
         </nav>
-		<div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister">
-  <span>
-  <p>Looks like the passwords you entered don't match!</p>
-  </span>
-</div>
-
+		 <div class="alert alert-success collapse" id="requestStatus">
+  
+    <strong>Success!</strong> You will be notified by email if the pet sitter respond to your request.
+  </div>
+		<div id="sendRequest">
         <h1>Send Modhi a Request</h1>
-		<form action="homePage.html">
+		
         <label for="fromDate"> From </label> 
         <input id="fromDate" placeholder="MM/DD/YYYY" width="276" />
         <label for="toDate"> To </label> 
         <input id="toDate" placeholder="MM/DD/YYYY" width="276" />
        <br>
-        <button class="btn btn-primary"  type="submit" onclick="alert('Request send')">Send</button>
-		</form>
-
+        <button class="btn btn-primary"  type="submit" onclick="showSuccess()">Send</button>
+		
+</div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -75,8 +74,18 @@
             uiLibrary: 'bootstrap4'
         });
 		function showSuccess(){
-	
+			$('#requestStatus').show();
+			$('#sendRequest').hide();
+			
 		}
+		 function searchPetSitter() {
+  // Cancel the default action, if needed
+
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+   window.location.href = "searchResults.html";
+  }
+  }
 		</script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
