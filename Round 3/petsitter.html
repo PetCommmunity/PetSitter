@@ -84,12 +84,16 @@
 </div>
 <br>
 <div class="container">
-	<form class="form-horizontal" action="homePage.html" onsubmit="saveChangesFunction()" method="post">
+	<!--HERE-->
+	<div id="saveChangesSuccess" class="alert alert-success collapse" role="alert">
+  Your changes have been saved successfully!
+</div>
+	<form class="form-horizontal"  onsubmit="saveChangesFunction()" method="post">
 		<fieldset>
 			<div class="row no-gutter" >
 				<div class="col-md-7">
 					<div class="form-group">
-					  <label for="rate"><b>Base Rate per day per pet</b></label>
+					  <label for="rate"><b>Base Rate per day per pet (USD)</b></label>
 					  <div class="col-md-2">
 						<Input type="text" class="form-control" id="rate" name="rate" placeholder="$0" />
 					  </div>
@@ -178,7 +182,7 @@
 				<div class="col-md-5">
 					<div class="form-group">
 					<label for="message"><b>Availability</b></label><br/>
-						<label id="av"><i><b>You are currently not available to pet sit.</b></i></label><br/>
+						<label id="av"><i><b></b></i></label><br/>
 						 <label for="fromDateSitting"> From </label> 
 						<input id="fromDateSitting" placeholder="MM/DD/YYYY" width="276" />
 						<label for="toDate"> To </label> 
@@ -191,7 +195,7 @@
 							</label>
 							<br/>
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input" id="medication" value="">Giviing Medications
+								<input type="checkbox" class="form-check-input" id="medication" value="">Giving Medications
 							</label>
 							<br/>
 								<label class="form-check-label">

@@ -32,7 +32,7 @@ function setInputValues(){
   }
   
   function saveChangesFunction(){
-	  alert("Changes are saved")
+	  zalert("Changes are saved")
   var rate = $("#rate").val();
   var visithome = $("#visithome").is(":checked");
  
@@ -98,4 +98,5 @@ function setReadOnly(readOnly){
  $("#others").prop('checked', (sessionStorage.getItem("other")));
  $("#comment").val(sessionStorage.getItem("comment"));
  $("#bio").val(sessionStorage.getItem("bio"));
+ $("#saveChangesSuccess").show();
 }
