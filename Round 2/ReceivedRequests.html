@@ -13,19 +13,22 @@
   
   
 <script>
-
+function hideCancel()
+{
+$("#cancel").hide();
+}
 function myFunction() {
 
 $("#requestInfo").hide();
 $("#cancel").hide();
-
+document.getElementById("status").innerHTML = "Cancelled by you.";
 alert("Request Cencelled!");
 }
 
 
 function viewReq()
 {
-alert("Hello! I have a chihuahua that will need to be taken care of from 10/21 to 10/24. Your schedule says you are available those days. It needs to be taken for walks once every hour, and always need someone at home with it.");
+alert("Two chihuahuas that need to be taken for walks once every hour, and always need someone at home with them.");
 }
 
 function acceptReq()
@@ -44,6 +47,7 @@ $("#cancel").show();
 
 function declineReq()
 {
+var reason = prompt("Please tell the pet owner why you declined the request", "");
 document.getElementById("status").innerHTML = "Declined";
 $("#accept").hide();
 $("#decline").hide();
@@ -65,13 +69,19 @@ document.getElementById("status").innerHTML = "You don't have any requests recei
 </style>
   
 </head>
-<body>
+<body onload="hideCancel()">
   <nav class="navbar navbar-expand-md navbar-expand-lg navbar-lorder-1 order-md-0 bg-light">
   
     <a class="navbar-brand" href="homePage.html">FindAPetSitter.com</a>
 	
     <div class="navbar-collapse collapse w-100  dual-collapse2">
-      <input class="form-control" type="search" placeholder="Search a person or location" aria-label="Search">
+            	  	<form action="searchResults.html">
+        <label for="fromDate"> From </label> 
+        <input id="fromDate" placeholder="MM/DD/YYYY" width="276" />
+        <label for="toDate"> To </label> 
+        <input id="toDate" placeholder="MM/DD/YYYY" width="276" />
+        <button class="btn btn-primary" type="submit">Search</button>
+		</form>
 
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
@@ -83,7 +93,7 @@ document.getElementById("status").innerHTML = "You don't have any requests recei
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="yourProfile.html">Profile</a>
-          <a class="dropdown-item" href="ReceivedRequests.html">Requests</a>
+          <a class="dropdown-item" href="SentRequests.html">Requests</a>
           <a class="dropdown-item" href="SittingHistory.html">History</a>
           <a class="dropdown-item" href="YourReviews.html">Reviews</a>
         </div>
@@ -104,8 +114,8 @@ document.getElementById("status").innerHTML = "You don't have any requests recei
 				<br>
 				<table >
 					<tr>
-						<!--<th><a href="sentRequests.html">Sent Requests</a></th>-->
-						<th>Recieved Requests</th> 
+						<th><a href="sentRequests.html">Sent Requests</a></th>
+						<th>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Recieved Requests</th> 
 					</tr>
 				</table>
 				<br>
@@ -155,8 +165,8 @@ document.getElementById("status").innerHTML = "You don't have any requests recei
 							<th>Oct 21 - Oct 24</th> 
 						</tr>
 						<tr>
-							<th> <img src="Images/email.png" alt="icon" width="20" height="20" target="_top"><a href="mailto:pet_sitter_stLouis@gmail.com">&nbsp;Email</a>
-							|	 <img src="Images/phone.png" alt="icon" width="20" height="20"><a href="javascript:alert('314-123-456')">&nbsp;Phone</a>
+							<th> <img src="Images/email.png" alt="icon" width="20" height="20"><a href="">&nbsp;Email</a>
+							|	 <img src="Images/phone.png" alt="icon" width="20" height="20"><a href="">&nbsp;Phone</a>
 							</th>
 						</tr>
 					</table>
@@ -164,8 +174,8 @@ document.getElementById("status").innerHTML = "You don't have any requests recei
 					<p id="status">Waiting ...</p>
 					<button id="view" type="button" class="btn btn-primary" onclick="viewReq()">View Request</button>
 					<button id="accept" type="button" class="btn btn-primary" onclick="acceptReq()">Accept Request</button>
-					<button id="decline" type="button" class="btn btn-primary" onclick="declineReq()">Decline Request</button> <br>
-					<button hidden id="cancel" type="button" class="btn btn-primary" onclick="myFunction()">Cancel Request</button>
+					<button id="decline" type="button" class="btn btn-primary" onclick="declineReq()">Decline Request</button>
+					<button id="cancel" type="button" class="btn btn-primary" onclick="myFunction()">Cancel Request</button>
 				</div>
 			  
             </div>
