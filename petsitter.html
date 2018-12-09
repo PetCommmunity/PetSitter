@@ -35,7 +35,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-  <link href="petsitter.css" rel="stylesheet" id="bootstrap-local">
+  <!-- <link href="petsitter.css" rel="stylesheet" id="bootstrap-local"> -->
   <script src="petsitter.js"></script>
 </head>
 <body>
@@ -122,11 +122,11 @@
 						</label>
 						<br/>
 							<label class="form-check-label">
-							<input type="checkbox" class="form-check-input" id ="birds" value="">Birds
+							<input type="checkbox" class="form-check-input" id ="bird" value="">Birds
 						</label>
 						<br/>
 							<label class="form-check-label">
-							<input type="checkbox" class="form-check-input" id="mammals" value="">Small Mammals
+							<input type="checkbox" class="form-check-input" id="mammal" value="">Small Mammals
 						</label>
 						<br/>
 							<label class="form-check-label">
@@ -134,20 +134,20 @@
 						</label>
 						<br/>
 						<label class="form-check-label">
-							<input type="checkbox" class="form-check-input" id="reptiles" value="">Reptiles
+							<input type="checkbox" class="form-check-input" id="reptile" value="">Reptiles
 						</label>
 						<br/>
 
 						<label class="form-check-label">
-							<input type="checkbox" class="form-check-input" id="others" value="">Others
+							<input type="checkbox" class="form-check-input" id="other" value="">Others
 						</label>
 						<br/> <br/> 
 						<label for="message" class="form-check-label"><b>Avaibility</b></label><br/>
 						  <label  id="av"><i><b>You are currently not available to pet sit.</b></i></label><br/>
 						 <label for="fromDate" class="form-check-label"> From </label> 
-        <input id="fromDateSitting" placeholder="MM/DD/YYYY" width="276" />
+        <input id="fromDate" placeholder="MM/DD/YYYY" width="276" />
         <label for="toDate" class="form-check-label"> To </label> 
-        <input id="toDateSitting" placeholder="MM/DD/YYYY" width="276" />
+        <input id="toDate" placeholder="MM/DD/YYYY" width="276" />
 					  </div>
 					 </div> 
 					
@@ -174,7 +174,7 @@
 							</label>
 							<br/>
 								<label class="form-check-label">
-								<input type="checkbox" class="form-check-input" id="others" value="">Others
+								<input type="checkbox" class="form-check-input" id="otherOffers" value="">Others
 								<br/>
 								<textarea class="form-control" rows="5" id="comment"></textarea>
 							</label>
@@ -190,9 +190,14 @@
 					</div>
 					<div class="form-group">
 						  <div class="col-md-12 text-center">
-							<button type="submit" class="btn btn-primary btn-md" onclick="savePetSitterSettings()">Save changes</button>
+							<button id="saveChanges" type="button" class="btn btn-primary btn-md" onclick="savePetSitterSettings()">Save changes</button>
 							
 						  </div>
+					</div>
+					<div class="form-group">
+						  <div class="col-md-12 text-center">
+							<button id="editChanges" type="button" class="btn btn-primary btn-md" onclick="editSettings()">Edit Settings</button>
+							</div>
 					</div>
 				</div >
 			</div>
@@ -202,16 +207,162 @@
 
 	<script> 
 	
+	$(document).ready(function(){
+		console.log("ready");
+		var ispetsit = sessionStorage.getItem("isEditPetSitter");
+		console.log("is pet sit", ispetsit);
+		setInputValues();
+		setReadOnly(true);
+		if(sessionStorage.getItem("isEditPetSitter") === "true"){
+			console.log("hey goes in here");
+			setReadOnly(false);
+		}
+	});
+
+	function editSettings(){
+		sessionStorage.setItem("isEditPetSitter", "true");
+		setReadOnly(false);
+
+	}
+
+	function setReadOnly(canRead){
+		if(canRead){
+			$("#saveChanges").hide();
+			$("#editChanges").show();
+		}else{
+			$("#saveChanges").show();
+			$("#editChanges").hide();
+		}
+		$("#rate").prop("readonly", canRead);
+		$("#visithome").prop("disabled", canRead);
+		$("#sitatmyhome").prop("disabled", canRead);
+		$("#dog").prop("disabled", canRead);
+		$("#cat").prop("disabled", canRead);
+		$("#bird").prop("disabled", canRead);
+		$("#mammal").prop("disabled", canRead);
+		$("#fish").prop("disabled", canRead);
+		$("#reptile").prop("disabled", canRead);
+		$("#other").prop("disabled", canRead);
+		$("#fromDate").prop("readonly", canRead);
+		$("#toDate").prop("readonly", canRead);
+		$("#walk").prop("disabled", canRead);
+		$("#medication").prop("disabled", canRead);
+		$("#training").prop("disabled", canRead);
+		$("#grooming").prop("disabled", canRead);
+		$("#otherOffers").prop("disabled", canRead);
+		$("#comment").prop("readonly", canRead);
+		$("#bio").prop("readonly", canRead);
+	}
+
+	function setInputValues(){
+		var rate = sessionStorage.getItem("rate");
+		var visithome = sessionStorage.getItem("visithome") == "true";
+		console.log("can visit home", visithome);
+		var sitatmyhome = sessionStorage.getItem("sitatmyhome") == "true";
+		var canSitDogs = sessionStorage.getItem("canSitDogs") == "true";
+		var canSitCats = sessionStorage.getItem("canSitCats") == "true";
+		var canSitBirds = sessionStorage.getItem("canSitBirds") == "true";
+		var canSitMammals = sessionStorage.getItem("canSitMammals") == "true";
+		var canSitFish = sessionStorage.getItem("canSitFish") == "true";
+		var canSitReptiles = sessionStorage.getItem("canSitReptiles") == "true";
+		var canSitOthers = sessionStorage.getItem("canSitOthers") == "true";
+		var fromDate = sessionStorage.getItem("fromDate");
+		var toDate = sessionStorage.getItem("toDate");
+		var walk = sessionStorage.getItem("walk") == "true";
+		var medication = sessionStorage.getItem("medication") == "true";
+		var training = sessionStorage.getItem("training") == "true";
+		var grooming = sessionStorage.getItem("grooming") == "true";
+		var otherOffers = sessionStorage.getItem("otherOffers") == "true";
+		var comment = sessionStorage.getItem("comment");
+		var bio = sessionStorage.getItem("bio");
+
+		$("#rate").val(rate);
+		$("#visithome").prop( "checked", visithome)
+		$("#sitatmyhome").prop( "checked", sitatmyhome);
+		$("#dog").prop( "checked", canSitDogs);
+		$("#cat").prop( "checked", canSitCats);
+		$("#bird").prop( "checked", canSitBirds);
+		$("#mammal").prop( "checked", canSitMammals);
+		$("#fish").prop( "checked", canSitFish);
+		$("#reptile").prop( "checked", canSitReptiles);
+		$("#other").prop( "checked",canSitOthers);
+		$("#fromDate").val(fromDate);
+		$("#toDate").val(toDate);
+		$("#walk").prop( "checked",walk);
+		$("#medication").prop( "checked", medication);
+		$("#training").prop( "checked", training);
+		$("#grooming").prop( "checked", grooming);
+		$("#otherOffers").prop( "checked", otherOffers);
+		$("#comment").val(comment);
+		$("#bio").val(comment);
+
+
+	}
+
+	function savePetSitterSettings(){
+
+		var rate = $("#rate").val();
+		var visithome = $("#visithome").prop( "checked" ) ? "true" : "false";
+		// console.log("visit home: ", visithome);
+		var sitatmyhome = $("#sitatmyhome").prop( "checked" ) ? "true" : "false";
+		console.log("sit at home: ", $("#sitatmyhome").checked);
+		var canSitDogs = $("#dog").prop( "checked" ) ? "true" : "false";
+		var canSitCats = $("#cat").prop( "checked" ) ? "true" : "false";
+		var canSitBirds = $("#bird").prop( "checked" ) ? "true" : "false";
+		var canSitMammals = $("#mammal").prop( "checked" ) ? "true" : "false";
+		var canSitFish = $("#fish").prop( "checked" ) ? "true" : "false";
+		var canSitReptiles = $("#reptile").prop( "checked" ) ? "true" : "false";
+		var canSitOthers = $("#other").prop( "checked" ) ? "true" : "false";
+		var fromDate = $("#fromDate").val();
+		var toDate = $("#toDate").val();
+		var walk = $("#walk").prop( "checked" ) ? "true" : "false";
+		var medication = $("#medication").prop( "checked" ) ? "true" : "false";
+		var training = $("#training").prop( "checked" ) ? "true" : "false";
+		var grooming = $("#grooming").prop( "checked" ) ? "true" : "false";
+		var otherOffers = $("#otherOffers").prop( "checked" ) ? "true" : "false";
+		var comment = $("#comment").val();
+		var bio = $("#bio").val();
+
+		sessionStorage.setItem("rate", rate);
+		sessionStorage.setItem("visithome", visithome);
+		sessionStorage.setItem("sitatmyhome", sitatmyhome);
+		sessionStorage.setItem("canSitDogs", canSitDogs);
+		sessionStorage.setItem("canSitCats", canSitCats);
+		sessionStorage.setItem("canSitBirds", canSitBirds);
+		sessionStorage.setItem("canSitMammals", canSitMammals);
+		sessionStorage.setItem("canSitFish", canSitFish);
+		sessionStorage.setItem("canSitReptiles", canSitReptiles);
+		sessionStorage.setItem("canSitOthers", canSitOthers);
+		sessionStorage.setItem("fromDate", fromDate)
+		sessionStorage.setItem("toDate", toDate);
+		sessionStorage.setItem("walk", walk);
+		sessionStorage.setItem("medication", medication);
+		sessionStorage.setItem("training", training);
+		sessionStorage.setItem("grooming", grooming);
+		sessionStorage.setItem("otherOffers", otherOffers);
+		sessionStorage.setItem("comment", comment);
+		sessionStorage.setItem("bio", bio);
+		sessionStorage.setItem("isEditPetSitter", "false");
+		// $("#saveChanges").hide();
+		// $("#editChanges").show();
+		setReadOnly(true);
+
+	}
+
+
+
+
+
 	
-		$('#fromDateSitting').datepicker({
+		$('#fromDate').datepicker({
             uiLibrary: 'bootstrap4'
         });
-        $('#toDateSitting').datepicker({
+        $('#toDate').datepicker({
             uiLibrary: 'bootstrap4'
         });
 
- $("#fromDateSitting").val(sessionStorage.getItem("fromDateSitting"));
- $("#toDateSitting").val(sessionStorage.getItem("toDateSitting"));
+ $("#fromDate").val(sessionStorage.getItem("fromDate"));
+ $("#toDate").val(sessionStorage.getItem("toDate"));
  
 
 
