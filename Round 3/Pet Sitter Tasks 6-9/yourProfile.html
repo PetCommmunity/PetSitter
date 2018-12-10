@@ -262,9 +262,9 @@ return sNewStr;
   Registration successful. Please fill out the rest of your profile.
 </div>
 <div class="p-4">
+   <p id="mandatory" style="color:red"></p>
   <div class="card" style="width: 18rem; height: 18rem;">
     <img class="card-img-top" src="Images/blank_user.png" id="profilepic" alt="Card image cap">
-    
   </div>
 
 </div>
@@ -273,7 +273,10 @@ return sNewStr;
   <div id="saveChangesSuccess" class="alert alert-success collapse" role="alert">
   Your changes have been saved successfully!
 </div>
+
+
   <form>
+
      <div id="imgFile" class="input-group collapse">
                     <span class="input-group-btn">
                         <span class="btn btn-default btn-file">
@@ -282,7 +285,7 @@ return sNewStr;
                     </span>
                     <!--input type="text" id="imageName" class="form-control" readonly-->
                 </div>
-	<p id="mandatory" style="color:red"></p>
+	
     <div class="form-group col-4">
       <label for="firstName">First Name</label>
       <input type="text" class="form-control" id="firstName"  placeholder="Enter First Name">
@@ -357,6 +360,7 @@ return sNewStr;
         var userEmail = sessionStorage.getItem("userEmail");
         $("#email1").attr("value", userEmail);
         $("#saveChangesButton").show();
+		$("#mandatory").text("All Fields are Mandatory to Fill");
         $("#editButton").hide();
         $("#imgFile").show();
       } else{
