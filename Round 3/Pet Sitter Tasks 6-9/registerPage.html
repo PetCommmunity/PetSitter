@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Register</title>
+    
+    <script>
+function myFunction() {
+    //document.getElementById("submit").innerHTML = "Paragraph changed.";
+  alert("You are successfully registered!");
+  window.location = "loginPage.html";
+}
+</script>
+    
+    <style>
+ .no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+  #bg {
+  /* The image used */
+  background-image: url("https://www.vintage-hotels.com/images/corporate/header-pet-policy.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-expand-lg navbar-lorder-1 order-md-0 bg-light">
+      <a class="navbar-brand" href="#">FindAPetSitter.com</a>
+    <div class="navbar-collapse collapse w-100  dual-collapse2">
+      <!-- <input class="form-control" type="search" placeholder="Search a person or location" aria-label="Search"> -->
+        
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <!-- <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              
+              <img src="Images/whiteshirt copy 2.jpg" class="img-thumbnail" alt = "menu" height ="50" width = "50">
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Requests</a>
+                <a class="dropdown-item" href="#">History</a>
+                <a class="dropdown-item" href="#">Reviews</a>
+              </div>
+            </li>
+        </ul> -->
+    </div>
+    
+</nav>
+<!-- 
+<div class="container-fluid">
+      <img src="header-pet-policy.jpg" class="img-fluid" alt="Responsive image">
+    </div> -->
+   <!--  <div class="container-fluid" id="bg">
+    </div> -->
+ 
+    <!--Grid row-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="card bg-dark">
+      <img class="card-img" src="https://www.vintage-hotels.com/images/corporate/header-pet-policy.jpg" alt="Card image">
+      <div class="card-img-overlay">
+        <br>
+        
+            <div class="col-sm-6">
+              
+            <div class="card bg-light">
+
+              <div class="card-body">
+                <h1 class="card-title">Make a new account</h1>
+               <form>
+                <div class="form-group">
+                  
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div id="passwordsNoMatchRegister" class="alert alert-danger collapse" role="alert" >
+  Passwords Do Not Match!
+</div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword2">Confirm Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                </div>
+                <div id="checkBoxAlert" class="alert alert-danger collapse" role="alert">
+  You must select at least one!
+</div>
+                <h5> Register as a </h5>
+                <div class="form-group form-check d-inline col-3">
+                  <input type="checkbox" class="form-check-input" id="petOwnerCheck">
+                  <label class="form-check-label" for="exampleCheck1">Pet Owner</label>
+                </div>
+                <div class="form-group form-check d-inline col-3">
+                  <input type="checkbox" class="form-check-input" id="petSitterCheck">
+                  <label class="form-check-label" for="exampleCheck1">Pet Sitter</label>
+                </div>
+
+                  
+                <br>
+                <br>
+                <div>
+                
+              </div>
+              </form>
+              <button type="click" id="register" class="btn btn-primary" onclick="registerFunction()">Register</button>
+              
+              
+              </div>
+            </div>
+      </div>
+        <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+        <!-- <br> -->
+        <!-- <br>
+        <br>
+        <input class="form-control col-5" type="search" placeholder="Search a person or location" aria-label="Search">
+        <br>
+        <label for="fromDate"> From </label> 
+        <input id="fromDate" placeholder="MM/DD/YYYY" width="276" />
+        <label for="toDate"> To </label> 
+        <input id="toDate" placeholder="MM/DD/YYYY" width="276" />
+       <br>
+        <button class="btn btn-primary" type="submit">Search</button> -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script>
+
+  function validateCheckboxes(){
+    var isPetOwner = $("#petOwnerCheck").is(":checked");
+    var isPetSitter = $("#petSitterCheck").is(":checked");
+    if(!isPetOwner && !isPetSitter){
+      console.log("hereeeee iddnt show");
+      $('#checkBoxAlert').show();
+      return false;
+    }
+    return true;
+  }
+
+  function validatePassword(){
+    var inputPassword = $("#exampleInputPassword1").val();
+    var confirmPassword = $("#exampleInputPassword2").val();
+    if(inputPassword != confirmPassword){
+      $('#passwordsNoMatchRegister').show();
+      return false;
+    }
+    return true;
+
+  }
+
+  function registerFunction(){
+    var inputEmail = $("#exampleInputEmail1").val();
+    var inputPassword = $("#exampleInputPassword1").val();
+    var confirmPassword = $("#exampleInputPassword2").val();
+    var isPetOwner = $("#petOwnerCheck").is(":checked");
+    var isPetSitter = $("#petSitterCheck").is(":checked");
+    var canRegister = validatePassword();
+    var canRegister = validateCheckboxes() && canRegister;
+    console.log(canRegister);
+    if(canRegister){
+      // console.log("helloooo");
+      sessionStorage.setItem("userEmail", inputEmail);
+      sessionStorage.setItem("userPassword", inputPassword);
+      if(isPetOwner){
+        sessionStorage.setItem("isPetOwner", "true");
+      }else{
+        sessionStorage.setItem("isPetOwner", "false");
+      }
+      if(isPetSitter){
+        sessionStorage.setItem("isPetSitter", "true");
+      }else{
+        sessionStorage.setItem("isPetSitter", "false");
+      }
+      sessionStorage.setItem("userIsPetOwner", isPetOwner);
+      sessionStorage.setItem("editProfile", "true");
+      sessionStorage.setItem("justRegistered", "true");
+	  sessionStorage.setItem("isUserRegistered", "true");
+//	  alert(sessionStorage.getItem("isUserRegistered"));
+      // console.log(sessionStorage.getItem("userEmail"))
+      window.location.href = './yourProfile.html';
+      
+    }
+    
+
+  }
+ </script>
+
+
+        
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  
+  </body>
+</html>
+
+ 

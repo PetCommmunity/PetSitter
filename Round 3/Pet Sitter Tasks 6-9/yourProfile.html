@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+    <title>My Profile</title>
+    <script language="javascript">
+
+<!-- This script is based on the javascript code of Roman Feldblum (web.developer@programmer.net) -->
+<!-- Original script : http://javascript.internet.com/forms/format-phone-number.html -->
+<!-- Original script is revised by Eralper Yilmaz (http://www.eralper.com) -->
+<!-- Revised script : http://www.kodyaz.com -->
+
+var zChar = new Array(' ', '(', ')', '-', '.');
+var maxphonelength = 13;
+var phonevalue1;
+var phonevalue2;
+var cursorposition;
+
+function ParseForNumber1(object){
+phonevalue1 = ParseChar(object.value, zChar);
+}
+function ParseForNumber2(object){
+phonevalue2 = ParseChar(object.value, zChar);
+}
+
+function backspacerUP(object,e) { 
+if(e){ 
+e = e 
+} else {
+e = window.event 
+} 
+if(e.which){ 
+var keycode = e.which 
+} else {
+var keycode = e.keyCode 
+}
+
+ParseForNumber1(object)
+
+if(keycode >= 48){
+ValidatePhone(object)
+}
+}
+
+function backspacerDOWN(object,e) { 
+if(e){ 
+e = e 
+} else {
+e = window.event 
+} 
+if(e.which){ 
+var keycode = e.which 
+} else {
+var keycode = e.keyCode 
+}
+ParseForNumber2(object)
+} 
+
+function GetCursorPosition(){
+
+var t1 = phonevalue1;
+var t2 = phonevalue2;
+var bool = false
+for (i=0; i<t1.length; i++)
+{
+if (t1.substring(i,1) != t2.substring(i,1)) {
+if(!bool) {
+cursorposition=i
+bool=true
+}
+}
+}
+}
+
+function ValidatePhone(object){
+
+var p = phonevalue1
+
+p = p.replace(/[^\d]*/gi,"")
+
+if (p.length < 3) {
+object.value=p
+} else if(p.length==3){
+pp=p;
+d4=p.indexOf('(')
+d5=p.indexOf(')')
+if(d4==-1){
+pp="("+pp;
+}
+if(d5==-1){
+pp=pp+")";
+}
+object.value = pp;
+} else if(p.length>3 && p.length < 7){
+p ="(" + p; 
+l30=p.length;
+p30=p.substring(0,4);
+p30=p30+")"
+
+p31=p.substring(4,l30);
+pp=p30+p31;
+
+object.value = pp; 
+
+} else if(p.length >= 7){
+p ="(" + p; 
+l30=p.length;
+p30=p.substring(0,4);
+p30=p30+")"
+
+p31=p.substring(4,l30);
+pp=p30+p31;
+
+l40 = pp.length;
+p40 = pp.substring(0,8);
+p40 = p40 + "-"
+
+p41 = pp.substring(8,l40);
+ppp = p40 + p41;
+
+object.value = ppp.substring(0, maxphonelength);
+}
+
+GetCursorPosition()
+
+if(cursorposition >= 0){
+if (cursorposition == 0) {
+cursorposition = 2
+} else if (cursorposition <= 2) {
+cursorposition = cursorposition + 1
+} else if (cursorposition <= 5) {
+cursorposition = cursorposition + 2
+} else if (cursorposition == 6) {
+cursorposition = cursorposition + 2
+} else if (cursorposition == 7) {
+cursorposition = cursorposition + 4
+e1=object.value.indexOf(')')
+e2=object.value.indexOf('-')
+if (e1>-1 && e2>-1){
+if (e2-e1 == 4) {
+cursorposition = cursorposition - 1
+}
+}
+} else if (cursorposition < 11) {
+cursorposition = cursorposition + 3
+} else if (cursorposition == 11) {
+cursorposition = cursorposition + 1
+} else if (cursorposition >= 12) {
+cursorposition = cursorposition
+}
+
+var txtRange = object.createTextRange();
+txtRange.moveStart( "character", cursorposition);
+txtRange.moveEnd( "character", cursorposition - object.value.length);
+txtRange.select();
+}
+
+}
+
+function ParseChar(sStr, sChar)
+{
+if (sChar.length == null) 
+{
+zChar = new Array(sChar);
+}
+else zChar = sChar;
+
+for (i=0; i<zChar.length; i++)
+{
+sNewStr = "";
+
+var iStart = 0;
+var iEnd = sStr.indexOf(sChar[i]);
+
+while (iEnd != -1)
+{
+sNewStr += sStr.substring(iStart, iEnd);
+iStart = iEnd + 1;
+iEnd = sStr.indexOf(sChar[i], iStart);
+}
+sNewStr += sStr.substring(sStr.lastIndexOf(sChar[i]) + 1, sStr.length);
+
+sStr = sNewStr;
+}
+
+return sNewStr;
+}
+</script>
+    <style>
+ .no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+  #bg {
+  /* The image used */
+  background-image: url("https://www.vintage-hotels.com/images/corporate/header-pet-policy.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-expand-lg navbar-lorder-1 order-md-0 bg-light">
+      <a class="navbar-brand" href="homePage.html">FindAPetSitter.com</a>
+    <div class="navbar-collapse collapse w-100  dual-collapse2">
+      <input class="form-control" type="search" placeholder="Search a person or location" aria-label="Search">
+        
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              
+              <img src="Images/blank_user.png" class="img-thumbnail" alt = "menu" height ="50" width = "50">
+              </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="yourProfile.html">My Profile</a>
+          <a class="dropdown-item" href="ReceivedRequests.html">Requests</a>
+          <a class="dropdown-item" href="SittingHistory.html">History</a>
+          <a class="dropdown-item" href="YourReviews.html">Reviews</a>
+        </div>
+            </li>
+            
+        </ul>
+    </div>
+
+    
+</nav>
+
+<div>
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">My Profile</a>
+    </li>
+    <li class="nav-item">
+      <a id="petSitterTab" class="nav-link" href="petsitter.html">Pet Sitter Settings</a>
+    </li>
+    <!-- <li class="nav-item">
+      <a class="nav-link disabled" href="#">Pet Sitter Settings</a>
+    </li> -->
+  </ul>
+
+</div>
+<div id="successRegisterAlert" class="alert alert-success collapse" role="alert">
+  Registration successful. Please fill out the rest of your profile.
+</div>
+<div class="p-4">
+  <div class="card" style="width: 18rem; height: 18rem;">
+    <img class="card-img-top" src="Images/blank_user.png" id="profilepic" alt="Card image cap">
+    
+  </div>
+
+</div>
+
+<div class="container-fluid p-4">
+  <div id="saveChangesSuccess" class="alert alert-success collapse" role="alert">
+  Your changes have been saved successfully!
+</div>
+  <form>
+     <div id="imgFile" class="input-group collapse">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            Profile Picture &nbsp;&nbsp;<input type="file" id="imgInp">
+                        </span>
+                    </span>
+                    <!--input type="text" id="imageName" class="form-control" readonly-->
+                </div>
+	<p id="mandatory" style="color:red"></p>
+    <div class="form-group col-4">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName"  placeholder="Enter First Name">
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+    <div class="form-group col-4">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+    </div>
+    <div class="input-group col-4">
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="gender">Gender</label>
+      </div>
+      <select class="custom-select" id="gender">
+        <option selected>Choose...</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Nonbinary">Nonbinary</option>
+    </select>
+  </div>
+  <br>
+  <div class="form-group col-4">
+      <label for="email1">Email</label>
+      <input type="text"  class="form-control" id="email1" placeholder="petlover@email.com">
+  </div>
+
+  <div class="form-group col-4">
+      <label for="Address">Address</label>
+      <input type="text" class="form-control" id="Address" placeholder="Enter Address">
+    </div>
+    <div class="form-group col-4">
+      <label for="City">City</label>
+      <input type="text" class="form-control" id="City" placeholder="Enter City">
+    </div>
+    <div class="form-group col-4">
+      <label for="State">State</label>
+      <input type="text" class="form-control" id="State" placeholder="Enter State">
+    </div>
+    <div class="form-group col-4">
+      <label for="Zip">Zip Code</label>
+      <input type="text" class="form-control" id="Zip" placeholder="Enter Zip Code">
+    </div>
+  <div class="form-group col-4">
+    <label for="phoneNum" class="col-form-label">Telephone</label>
+    <div>
+       <input class="form-control" type="tel" placeholder="(xxx)xxx-xxxx" id="phoneNum" onkeydown="javascript:backspacerDOWN(this,event);" onkeyup="javascript:backspacerUP(this,event);">
+    </div>
+</div>
+  <div class="form-group col-4">
+  <!-- <button id="saveChangesButton" type="submit" class="btn btn-primary" onSubmit="saveChangesFunction()">Save Changes</button> -->
+</div>
+  </form>
+   <button id="saveChangesButton" type="click" class="btn btn-primary collapse" onclick="saveChangesFunction()">Save Changes</button>
+   <button id="editButton" type="click" class="btn btn-primary" onclick="editButtonFunction()">Edit Profile</button>
+
+</div>
+
+ <script type="text/javascript">
+  $(document).ready(function(){
+      console.log("ready");
+      var ispetsit = sessionStorage.getItem("isPetSitter");
+      console.log(ispetsit);
+      if(sessionStorage.getItem("isPetSitter") != "true"){
+        console.log("here");
+        $("#petSitterTab").addClass("disabled")
+      }
+      if(sessionStorage.getItem("justRegistered") === "true"){
+        $("#successRegisterAlert").show();
+        sessionStorage.setItem("justRegistered", "false");
+      }
+      if(sessionStorage.getItem("editProfile") === "true"){
+        var userEmail = sessionStorage.getItem("userEmail");
+        $("#email1").attr("value", userEmail);
+        $("#saveChangesButton").show();
+        $("#editButton").hide();
+        $("#imgFile").show();
+      } else{
+        setInputValues();
+        
+      }
+        $(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+        });
+    
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		       // if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#profilepic').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		});
+   
+
+    });
+
+  function editButtonFunction(){
+    $("#editButton").hide();
+    $("#saveChangesButton").show();
+    $("#imgFile").show();
+	$("#mandatory").text("All Fields are Mandatory to Fill");
+    setReadOnly(false);
+  }
+
+  function setInputValues(){
+    console.log("supposed to set values");
+    var userEmail = sessionStorage.getItem("userEmail");
+    var firstName = sessionStorage.getItem("firstName");
+    var lastName = sessionStorage.getItem("lastName");
+    var gender = sessionStorage.getItem("gender");
+    var phoneNum = sessionStorage.getItem("phoneNum");
+    var address = sessionStorage.getItem("address");
+    var city = sessionStorage.getItem("city");
+    var state = sessionStorage.getItem("state");
+    var zip = sessionStorage.getItem("zip");
+    console.log(userEmail);
+    console.log(gender)
+    $("#email1").attr("placeholder", userEmail);
+    $("#firstName").val(firstName);
+    $("#lastName").val(lastName);
+    $("#gender").val(gender);
+    $("#phoneNum").val(phoneNum);
+    $("#Address").val(address);
+    $("#City").val(city);
+    $("#State").val(state);
+    $("#Zip").val(zip);
+    setReadOnly(true);
+  }
+
+  function setReadOnly(canRead){
+    $("#email1").prop("readonly", canRead);
+    $("#firstName").prop("readonly", canRead);
+    $("#lastName").prop("readonly", canRead);
+    $("#gender").prop("disabled", canRead);
+    $("#phoneNum").prop("readonly", canRead);
+    $("#Address").prop("readonly", canRead);
+    $("#City").prop("readonly", canRead);
+    $("#State").prop("readonly", canRead);
+    $("#Zip").prop("readonly", canRead);
+  }
+
+ function saveChangesFunction(){
+  var email = $("#email1").val();
+  var firstName = $("#firstName").val();
+  var lastName = $("#lastName").val();
+  var gender = $("#gender").val();
+  var phoneNum = $("#phoneNum").val();
+  var address = $("#Address").val();
+  var city = $("#City").val();
+  var state = $("#State").val();
+  var zip = $("#Zip").val();
+  // console.log(address);
+  // console.log(gender);
+  sessionStorage.setItem("userEmail", email);
+  sessionStorage.setItem("firstName", firstName);
+  sessionStorage.setItem("lastName", lastName);
+  sessionStorage.setItem("gender", gender);
+  sessionStorage.setItem("phoneNum", phoneNum);
+  sessionStorage.setItem("address", address);
+  sessionStorage.setItem("state", state);
+  sessionStorage.setItem("zip", zip);
+  sessionStorage.setItem("city", city);
+  $("#saveChangesButton").hide();
+  sessionStorage.setItem("editProfile", "false");
+  $("#editButton").show();
+  $("#saveChangesSuccess").show();
+  $("#successRegisterAlert").hide();
+  $("#imgFile").hide();
+  $("#mandatory").text("");
+  setReadOnly(true);
+}
+
+ </script>
+
+        
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
+
+ 
