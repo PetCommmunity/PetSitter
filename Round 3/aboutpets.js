@@ -1,4 +1,13 @@
 $(document).ready(function(){
+
+	if(sessionStorage.getItem("petAdded")){
+		$("#editButton").show();
+ // $("#saveChangesSuccess").show();
+ // $("#successRegisterAlert").hide();
+  setReadOnly(true);
+  setInputValues();
+   $("#saveChangesButton").hide();
+	}
     $("#addpet").click(function(){
    var clonedform=$("#firstpetcard").clone();
    $("#name", clonedform).val("");
@@ -50,6 +59,7 @@ $(document).ready(function(){
 		}
 
 		$("#imgInp").change(function(){
+		//	alert("change")
 		    readURL(this);
 		});
    
@@ -73,20 +83,27 @@ function setReadOnly(canRead){
   var breed = $("#breed").val();
   var size = $("#size").val();
   var petdescription = $("#petdescription").val();
+  var petImage=$("#imgInp").val();
+   sessionStorage.setItem("petAdded",true);
  
   sessionStorage.setItem("name", name);
   sessionStorage.setItem("age", age);
   sessionStorage.setItem("type", type);
   sessionStorage.setItem("breed", breed);
   sessionStorage.setItem("size", size);
-   sessionStorage.setItem("petdescription", size);
+   sessionStorage.setItem("petdescription", petdescription);
   $("#saveChangesButton").hide();
   sessionStorage.setItem("editProfile", "false");
   $("#editButton").show();
  // $("#saveChangesSuccess").show();
  // $("#successRegisterAlert").hide();
+ // alert(petImage)
+  sessionStorage.setItem("petImage",petImage );
   setReadOnly(true);
+  
   setInputValues();
+ 
+ 
 }
 function setInputValues(){
   
@@ -96,19 +113,36 @@ function setInputValues(){
     var breed = sessionStorage.getItem("breed");
     var size = sessionStorage.getItem("size");
     var petdescription = sessionStorage.getItem("petdescription");
- 
-  
+	var petImage=sessionStorage.getItem("petImage" );
+ // alert(petImage)
     $("#name").val(name);
     $("#age").val(age);
-    $("#type").val(tyoe);
-    $("#brees").val(breed);
+    $("#type").val(type);
+    $("#breed").val(breed);
     $("#petdescription").val(petdescription);
+	// $('#imgInp').val( petImage);
+	//readURL("file:///"+petImage);
+	// alert("here")
     setReadOnly(true);
+	$("#imgFile").hide();
+	
   }
-  
+  function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+				
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
   function editButtonFunction(){
     $("#editButton").hide();
     $("#saveChangesButton").show();
+	 $("#imgFile").show();
     setReadOnly(false);
   }
   
