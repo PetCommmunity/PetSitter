@@ -71,7 +71,7 @@ function setReadOnly(canRead){
     $("#age").prop("readonly", canRead);
     $("#type").prop("disabled", canRead);
     $("#breed").prop("readonly", canRead);
-    $("#size").prop("readonly", canRead);
+    $("#size").prop("disabled", canRead);
 	  $("#petdescription").prop("readonly", canRead);
   }
   
@@ -117,6 +117,7 @@ function setInputValues(){
  // alert(petImage)
     $("#name").val(name);
     $("#age").val(age);
+	$("#size").val(size);
     $("#type").val(type);
     $("#breed").val(breed);
     $("#petdescription").val(petdescription);
